@@ -1,0 +1,46 @@
+/* Arabic Typography and RTL Styles */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* RTL Layout Fixes */
+.rtl-grid {
+  direction: rtl;
+}
+
+/* Arabic Number Styles */
+.arabic-nums {
+  font-feature-settings: 'tnum';
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* Better Arabic Line Heights */
+p, span, div {
+  line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* Price Display */
+.price-display {
+  font-weight: 700;
+  color: #F97316;
+}
+
+/* Button Styles for Arabic */
+.btn-arabic {
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+/* Search Input Arabic Placeholder */
+input::placeholder {
+  font-weight: 400;
+  opacity: 0.7;
+}
