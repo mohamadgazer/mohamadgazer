@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import {
   Search,
@@ -6,11 +7,12 @@ import {
   User,
   Menu,
   X,
-  Laptop,
+  // Laptop,
   Phone,
 } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
+import logoImg from "../assets/logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,9 +60,12 @@ const Header = () => {
             to="/"
             className="flex items-center gap-3 text-2xl font-bold text-slate-800 hover:text-orange-600 transition-colors"
           >
-            <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-2 rounded-lg">
-              <Laptop className="text-white" size={32} />
-            </div>
+            <img
+              src={logoImg}
+              alt="Logo"
+              className="h-10 w-10 object-contain rounded-lg"
+            />
+
             <span>AliensStore</span>
           </Link>
 
