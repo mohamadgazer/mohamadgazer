@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from 'lucide-react';
+import React, { useState } from "react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from "lucide-react";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -24,16 +28,16 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     // محاكاة إرسال النموذج
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     setSubmitted(true);
     setIsSubmitting(false);
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
     });
   };
 
@@ -65,11 +69,10 @@ const ContactPage = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          تواصل معنا
-        </h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">تواصل معنا</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          نحن هنا لمساعدتك. تواصل معنا عبر أي من الطرق التالية أو أرسل لنا رسالة مباشرة.
+          نحن هنا لمساعدتك. تواصل معنا عبر أي من الطرق التالية أو أرسل لنا رسالة
+          مباشرة.
         </p>
       </div>
 
@@ -82,11 +85,15 @@ const ContactPage = () => {
               <div className="bg-orange-100 p-3 rounded-full">
                 <MapPin size={24} className="text-orange-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800">موقع المتجر</h3>
+              <h3 className="text-lg font-semibold text-gray-800">
+                موقع المتجر
+              </h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-              شارع التحرير، وسط البلد<br />
-              القاهرة، مصر<br />
+              شارع التحرير، وسط البلد
+              <br />
+              القاهرة، مصر
+              <br />
               بجوار محطة مترو السادات
             </p>
           </div>
@@ -104,7 +111,7 @@ const ContactPage = () => {
                 href="tel:01012345678"
                 className="block text-gray-600 hover:text-orange-600 transition-colors arabic-nums"
               >
-                01012345678
+                +201552920076
               </a>
               <a
                 href="tel:0223456789"
@@ -121,7 +128,9 @@ const ContactPage = () => {
               <div className="bg-green-100 p-3 rounded-full">
                 <Mail size={24} className="text-green-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800">البريد الإلكتروني</h3>
+              <h3 className="text-lg font-semibold text-gray-800">
+                البريد الإلكتروني
+              </h3>
             </div>
             <div className="space-y-2">
               <a
@@ -145,7 +154,9 @@ const ContactPage = () => {
               <div className="bg-purple-100 p-3 rounded-full">
                 <Clock size={24} className="text-purple-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800">ساعات العمل</h3>
+              <h3 className="text-lg font-semibold text-gray-800">
+                ساعات العمل
+              </h3>
             </div>
             <div className="space-y-2 text-gray-600">
               <div className="flex justify-between">
@@ -161,7 +172,7 @@ const ContactPage = () => {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/201012345678"
+            href="https://wa.me/201552920076"
             target="_blank"
             rel="noopener noreferrer"
             className="block bg-green-600 text-white rounded-lg shadow-md p-6 hover:bg-green-700 transition-colors"
@@ -273,12 +284,12 @@ const ContactPage = () => {
                 disabled={isSubmitting}
                 className={`w-full py-4 px-6 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2 ${
                   isSubmitting
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-orange-600 hover:bg-orange-700'
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-orange-600 hover:bg-orange-700"
                 } text-white`}
               >
                 {isSubmitting ? (
-                  'جاري الإرسال...'
+                  "جاري الإرسال..."
                 ) : (
                   <>
                     <Send size={20} />
@@ -293,7 +304,9 @@ const ContactPage = () => {
 
       {/* Map Section */}
       <div className="bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">موقعنا على الخريطة</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          موقعنا على الخريطة
+        </h2>
         <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
           <div className="text-center text-gray-600">
             <MapPin size={48} className="mx-auto mb-4" />

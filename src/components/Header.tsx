@@ -40,7 +40,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-2">
               <Phone size={16} />
-              01012345678
+              +201552920076
             </span>
             <span>شحن مجاني للطلبات أكثر من 1000 جنيه</span>
           </div>

@@ -1,86 +1,103 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle, MessageCircle, Phone, Mail } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  ChevronDown,
+  ChevronUp,
+  HelpCircle,
+  MessageCircle,
+  Phone,
+  Mail,
+} from "lucide-react";
 
 const FAQPage = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
+    setOpenItems((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
 
   const faqData = [
     {
-      category: 'الطلب والشراء',
+      category: "الطلب والشراء",
       questions: [
         {
-          question: 'كيف يمكنني إجراء طلب؟',
-          answer: 'يمكنك إجراء طلب بسهولة من خلال تصفح المنتجات، إضافتها للسلة، ثم الذهاب لصفحة إتمام الطلب وملء البيانات المطلوبة.'
+          question: "كيف يمكنني إجراء طلب؟",
+          answer:
+            "يمكنك إجراء طلب بسهولة من خلال تصفح المنتجات، إضافتها للسلة، ثم الذهاب لصفحة إتمام الطلب وملء البيانات المطلوبة.",
         },
         {
-          question: 'ما هي وسائل الدفع المتاحة؟',
-          answer: 'نوفر حالياً خدمة الدفع عند التسليم. قريباً سنضيف وسائل دفع إلكترونية أخرى مثل فيزا وماستركارد وفوري.'
+          question: "ما هي وسائل الدفع المتاحة؟",
+          answer:
+            "نوفر حالياً خدمة الدفع عند التسليم. قريباً سنضيف وسائل دفع إلكترونية أخرى مثل فيزا وماستركارد وفوري.",
         },
         {
-          question: 'هل يمكنني تعديل أو إلغاء طلبي؟',
-          answer: 'يمكنك تعديل أو إلغاء طلبك خلال ساعة من إجرائه عبر التواصل معنا. بعد ذلك قد لا نتمكن من التعديل إذا تم تجهيز الطلب.'
-        }
-      ]
+          question: "هل يمكنني تعديل أو إلغاء طلبي؟",
+          answer:
+            "يمكنك تعديل أو إلغاء طلبك خلال ساعة من إجرائه عبر التواصل معنا. بعد ذلك قد لا نتمكن من التعديل إذا تم تجهيز الطلب.",
+        },
+      ],
     },
     {
-      category: 'الشحن والتوصيل',
+      category: "الشحن والتوصيل",
       questions: [
         {
-          question: 'كم تستغرق مدة التوصيل؟',
-          answer: 'عادة ما يستغرق التوصيل من 2-5 أيام عمل داخل القاهرة والجيزة، و3-7 أيام للمحافظات الأخرى.'
+          question: "كم تستغرق مدة التوصيل؟",
+          answer:
+            "عادة ما يستغرق التوصيل من 2-5 أيام عمل داخل القاهرة والجيزة، و3-7 أيام للمحافظات الأخرى.",
         },
         {
-          question: 'ما هي تكلفة الشحن؟',
-          answer: 'الشحن مجاني للطلبات أكثر من 1000 جنيه. للطلبات الأقل، تكلفة الشحن 50 جنيه داخل القاهرة والجيزة، و75 جنيه للمحافظات الأخرى.'
+          question: "ما هي تكلفة الشحن؟",
+          answer:
+            "الشحن مجاني للطلبات أكثر من 1000 جنيه. للطلبات الأقل، تكلفة الشحن 50 جنيه داخل القاهرة والجيزة، و75 جنيه للمحافظات الأخرى.",
         },
         {
-          question: 'هل يمكنني تتبع طلبي؟',
-          answer: 'نعم، سنرسل لك رقم تتبع عبر الرسائل النصية والبريد الإلكتروني بمجرد شحن طلبك.'
-        }
-      ]
+          question: "هل يمكنني تتبع طلبي؟",
+          answer:
+            "نعم، سنرسل لك رقم تتبع عبر الرسائل النصية والبريد الإلكتروني بمجرد شحن طلبك.",
+        },
+      ],
     },
     {
-      category: 'الضمان والاستبدال',
+      category: "الضمان والاستبدال",
       questions: [
         {
-          question: 'ما هي مدة الضمان؟',
-          answer: 'جميع منتجاتنا تأتي بضمان كامل لمدة سنة من تاريخ الشراء، بالإضافة لضمان الوكيل المعتمد.'
+          question: "ما هي مدة الضمان؟",
+          answer:
+            "جميع منتجاتنا تأتي بضمان كامل لمدة سنة من تاريخ الشراء، بالإضافة لضمان الوكيل المعتمد.",
         },
         {
-          question: 'هل يمكنني استبدال المنتج؟',
-          answer: 'يمكنك استبدال المنتج خلال 14 يوم من تاريخ الاستلام، بشرط أن يكون في حالته الأصلية مع العبوة والملحقات.'
+          question: "هل يمكنني استبدال المنتج؟",
+          answer:
+            "يمكنك استبدال المنتج خلال 14 يوم من تاريخ الاستلام، بشرط أن يكون في حالته الأصلية مع العبوة والملحقات.",
         },
         {
-          question: 'ماذا لو وصل المنتج تالفاً؟',
-          answer: 'في حالة وصول المنتج تالفاً، يرجى التواصل معنا فوراً وسنقوم بالاستبدال أو الاسترداد الفوري.'
-        }
-      ]
+          question: "ماذا لو وصل المنتج تالفاً؟",
+          answer:
+            "في حالة وصول المنتج تالفاً، يرجى التواصل معنا فوراً وسنقوم بالاستبدال أو الاسترداد الفوري.",
+        },
+      ],
     },
     {
-      category: 'الحساب والأمان',
+      category: "الحساب والأمان",
       questions: [
         {
-          question: 'هل أحتاج لإنشاء حساب للشراء؟',
-          answer: 'يمكنك الشراء بدون حساب، لكن إنشاء حساب يتيح لك تتبع طلباتك وحفظ عناوينك المفضلة.'
+          question: "هل أحتاج لإنشاء حساب للشراء؟",
+          answer:
+            "يمكنك الشراء بدون حساب، لكن إنشاء حساب يتيح لك تتبع طلباتك وحفظ عناوينك المفضلة.",
         },
         {
-          question: 'هل بياناتي آمنة؟',
-          answer: 'نعم، نحن نحمي بياناتك بأعلى معايير الأمان ولا نشاركها مع أي طرف ثالث.'
+          question: "هل بياناتي آمنة؟",
+          answer:
+            "نعم، نحن نحمي بياناتك بأعلى معايير الأمان ولا نشاركها مع أي طرف ثالث.",
         },
         {
-          question: 'نسيت كلمة المرور، ماذا أفعل؟',
-          answer: 'يمكنك إعادة تعيين كلمة المرور من صفحة تسجيل الدخول عبر النقر على "نسيت كلمة المرور".'
-        }
-      ]
-    }
+          question: "نسيت كلمة المرور، ماذا أفعل؟",
+          answer:
+            'يمكنك إعادة تعيين كلمة المرور من صفحة تسجيل الدخول عبر النقر على "نسيت كلمة المرور".',
+        },
+      ],
+    },
   ];
 
   return (
@@ -96,7 +113,8 @@ const FAQPage = () => {
           الأسئلة الشائعة
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          نجيب هنا على أكثر الأسئلة شيوعاً. إذا لم تجد إجابة سؤالك، لا تتردد في التواصل معنا.
+          نجيب هنا على أكثر الأسئلة شيوعاً. إذا لم تجد إجابة سؤالك، لا تتردد في
+          التواصل معنا.
         </p>
       </div>
 
@@ -115,7 +133,7 @@ const FAQPage = () => {
               {category.questions.map((item, questionIndex) => {
                 const globalIndex = categoryIndex * 100 + questionIndex;
                 const isOpen = openItems.includes(globalIndex);
-                
+
                 return (
                   <div
                     key={questionIndex}
@@ -129,12 +147,18 @@ const FAQPage = () => {
                         {item.question}
                       </span>
                       {isOpen ? (
-                        <ChevronUp size={20} className="text-orange-600 flex-shrink-0 mr-4" />
+                        <ChevronUp
+                          size={20}
+                          className="text-orange-600 flex-shrink-0 mr-4"
+                        />
                       ) : (
-                        <ChevronDown size={20} className="text-orange-600 flex-shrink-0 mr-4" />
+                        <ChevronDown
+                          size={20}
+                          className="text-orange-600 flex-shrink-0 mr-4"
+                        />
                       )}
                     </button>
-                    
+
                     {isOpen && (
                       <div className="px-6 pb-4">
                         <div className="border-t border-gray-200 pt-4">
@@ -153,27 +177,27 @@ const FAQPage = () => {
 
         {/* Contact Section */}
         <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-lg p-8 text-white text-center mt-12">
-          <h2 className="text-2xl font-bold mb-4">
-            لم تجد إجابة سؤالك؟
-          </h2>
+          <h2 className="text-2xl font-bold mb-4">لم تجد إجابة سؤالك؟</h2>
           <p className="text-orange-100 mb-6">
             فريق خدمة العملاء متاح لمساعدتك على مدار الساعة
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a
-              href="tel:01012345678"
+              href="tel:+201552920076"
               className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors"
             >
               <Phone size={24} />
               <div className="text-right">
                 <p className="font-semibold">اتصل بنا</p>
-                <p className="text-sm text-orange-100 arabic-nums">01012345678</p>
+                <p className="text-sm text-orange-100 arabic-nums">
+                  +201552920076
+                </p>
               </div>
             </a>
-            
+
             <a
-              href="https://wa.me/201012345678"
+              href="https://wa.me/201552920076"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors"
@@ -184,7 +208,7 @@ const FAQPage = () => {
                 <p className="text-sm text-orange-100">دردشة مباشرة</p>
               </div>
             </a>
-            
+
             <a
               href="mailto:info@aliensstore.com"
               className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors"

@@ -1,6 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Laptop, Phone, Mail, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Laptop,
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  MessageCircle,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -16,16 +24,26 @@ const Footer = () => {
               <span className="text-xl font-bold">AliensStore</span>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              متجرك المتخصص في أجهزة اللابتوب والإكسسوارات التقنية. نوفر أفضل المنتجات بأسعار تنافسية وخدمة عملاء ممتازة.
+              متجرك المتخصص في أجهزة اللابتوب والإكسسوارات التقنية. نوفر أفضل
+              المنتجات بأسعار تنافسية وخدمة عملاء ممتازة.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="bg-blue-600 p-2 rounded-full hover:bg-blue-700 transition-colors">
+              <a
+                href="#"
+                className="bg-blue-600 p-2 rounded-full hover:bg-blue-700 transition-colors"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="bg-pink-600 p-2 rounded-full hover:bg-pink-700 transition-colors">
+              <a
+                href="#"
+                className="bg-pink-600 p-2 rounded-full hover:bg-pink-700 transition-colors"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="bg-green-600 p-2 rounded-full hover:bg-green-700 transition-colors">
+              <a
+                href="#"
+                className="bg-green-600 p-2 rounded-full hover:bg-green-700 transition-colors"
+              >
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -36,27 +54,42 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">روابط سريعة</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   الرئيسية
                 </Link>
               </li>
               <li>
-                <Link to="/catalog" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/catalog"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   جميع المنتجات
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   عن المتجر
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/contact"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   تواصل معنا
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/faq"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   الأسئلة الشائعة
                 </Link>
               </li>
@@ -68,27 +101,42 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">الأقسام</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/catalog?category=laptops" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/catalog?category=laptops"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   أجهزة لابتوب
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=accessories&subcategory=mice" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/catalog?category=accessories&subcategory=mice"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   ماوس وفأرة
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=accessories&subcategory=keyboards" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/catalog?category=accessories&subcategory=keyboards"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   لوحات المفاتيح
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=accessories&subcategory=bags" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/catalog?category=accessories&subcategory=bags"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   شنط وحقائب
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=accessories&subcategory=chargers" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <Link
+                  to="/catalog?category=accessories&subcategory=chargers"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                >
                   الشواحن
                 </Link>
               </li>
@@ -101,7 +149,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-orange-400" />
-                <span className="text-gray-300 arabic-nums">01012345678</span>
+                <span className="text-gray-300 arabic-nums">+201552920076</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-orange-400" />
@@ -110,7 +158,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-orange-400 mt-1" />
                 <span className="text-gray-300">
-                  شارع التحرير، وسط البلد<br />
+                  شارع التحرير، وسط البلد
+                  <br />
                   القاهرة، مصر
                 </span>
               </div>
@@ -125,13 +174,22 @@ const Footer = () => {
               © 2024 AliensStore. جميع الحقوق محفوظة.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-gray-400 hover:text-orange-400 text-sm transition-colors">
+              <Link
+                to="/privacy"
+                className="text-gray-400 hover:text-orange-400 text-sm transition-colors"
+              >
                 سياسة الخصوصية
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-orange-400 text-sm transition-colors">
+              <Link
+                to="/terms"
+                className="text-gray-400 hover:text-orange-400 text-sm transition-colors"
+              >
                 شروط الاستخدام
               </Link>
-              <Link to="/returns" className="text-gray-400 hover:text-orange-400 text-sm transition-colors">
+              <Link
+                to="/returns"
+                className="text-gray-400 hover:text-orange-400 text-sm transition-colors"
+              >
                 سياسة الاستبدال
               </Link>
             </div>
