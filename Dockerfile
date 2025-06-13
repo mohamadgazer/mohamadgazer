@@ -1,24 +1,15 @@
-FROM php:8.2-fpm
+FROM node:18
 
-# إعدادات عامة
-WORKDIR /var/www
+WORKDIR /app
 
-# تثبيت المتطلبات
-RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip \
-    libpng-dev libjpeg-dev libfreetype6-dev \
-    libonig-dev libxml2-dev \
-    curl git \
-    && docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath gd
+COPY package*.json ./
 
-# تثبيت composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN npm install --legacy-peer-deps
 
-# نسخ الملفات
 COPY . .
 
-# تثبيت الباكجات
-RUN composer install
+RUN npm run build
 
-# تشغيل php-fpm
-CMD ["php-fpm"]
+RUN npm install -g serve
+
+CMD ["serve", "-s", "dist", "-l", "3000"]
