@@ -1,24 +1,35 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowRight, ShoppingCart, Heart, Share2, Star, Truck, Shield, RotateCcw } from 'lucide-react';
-import { products } from '../data/products';
-import { useCart } from '../context/CartContext';
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  ArrowRight,
+  ShoppingCart,
+  Heart,
+  Share2,
+  Star,
+  Truck,
+  Shield,
+  RotateCcw,
+} from "lucide-react";
+import { products } from "../data/products";
+import { useCart } from "../context/CartContext";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { dispatch } = useCart();
-  
-  const product = products.find(p => p.id === id);
+
+  const product = products.find((p) => p.id === id);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
   if (!product) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">المنتج غير موجود</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+          المنتج غير موجود
+        </h1>
         <button
-          onClick={() => navigate('/catalog')}
+          onClick={() => navigate("/catalog")}
           className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
         >
           العودة للكتالوج
@@ -30,33 +41,42 @@ const ProductDetailPage = () => {
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
       dispatch({
-        type: 'ADD_ITEM',
+        type: "ADD_ITEM",
         payload: {
           id: product.id,
           name: product.name,
           price: product.price,
           image: product.image,
-          category: product.category
-        }
+          category: product.category,
+        },
       });
     }
   };
 
   const relatedProducts = products
-    .filter(p => p.id !== product.id && p.category === product.category)
+    .filter((p) => p.id !== product.id && p.category === product.category)
     .slice(0, 4);
 
-  const discount = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+  const discount = product.originalPrice
+    ? Math.round(
+        ((product.originalPrice - product.price) / product.originalPrice) * 100
+      )
     : 0;
 
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-        <button onClick={() => navigate('/')} className="hover:text-orange-600">الرئيسية</button>
+        <button onClick={() => navigate("/")} className="hover:text-orange-600">
+          الرئيسية
+        </button>
         <span>/</span>
-        <button onClick={() => navigate('/catalog')} className="hover:text-orange-600">المنتجات</button>
+        <button
+          onClick={() => navigate("/catalog")}
+          className="hover:text-orange-600"
+        >
+          المنتجات
+        </button>
         <span>/</span>
         <span className="text-gray-800 font-medium">{product.name}</span>
       </nav>
@@ -71,7 +91,7 @@ const ProductDetailPage = () => {
               className="w-full h-96 object-cover rounded-lg shadow-lg"
             />
           </div>
-          
+
           {product.images.length > 1 && (
             <div className="flex gap-4 overflow-x-auto">
               {product.images.map((image, index) => (
@@ -79,7 +99,9 @@ const ProductDetailPage = () => {
                   key={index}
                   onClick={() => setSelectedImage(index)}
                   className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 ${
-                    selectedImage === index ? 'border-orange-500' : 'border-gray-200'
+                    selectedImage === index
+                      ? "border-orange-500"
+                      : "border-gray-200"
                   }`}
                 >
                   <img
@@ -101,7 +123,7 @@ const ProductDetailPage = () => {
               {product.brand}
             </span>
             <span className="bg-orange-100 px-3 py-1 rounded-full text-sm text-orange-600">
-              {product.category === 'laptops' ? 'لابتوب' : 'إكسسوار'}
+              {product.category === "laptops" ? "لابتوب" : "إكسسوار"}
             </span>
           </div>
 
@@ -117,9 +139,10 @@ const ProductDetailPage = () => {
                 <Star
                   key={i}
                   size={20}
-                  className={i < Math.floor(product.rating) 
-                    ? "text-yellow-400 fill-current" 
-                    : "text-gray-300"
+                  className={
+                    i < Math.floor(product.rating)
+                      ? "text-yellow-400 fill-current"
+                      : "text-gray-300"
                   }
                 />
               ))}
@@ -151,16 +174,22 @@ const ProductDetailPage = () => {
           {/* Stock Status */}
           <div className="mb-6">
             {product.inStock ? (
-              <span className="text-green-600 font-medium">✓ متوفر في المخزون</span>
+              <span className="text-green-600 font-medium">
+                ✓ متوفر في المخزون
+              </span>
             ) : (
-              <span className="text-red-600 font-medium">✗ غير متوفر حالياً</span>
+              <span className="text-red-600 font-medium">
+                ✗ غير متوفر حالياً
+              </span>
             )}
           </div>
 
           {/* Description */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-3">الوصف</h3>
-            <p className="text-gray-700 leading-relaxed">{product.description}</p>
+            <p className="text-gray-700 leading-relaxed">
+              {product.description}
+            </p>
           </div>
 
           {/* Add to Cart */}
@@ -172,7 +201,9 @@ const ProductDetailPage = () => {
               >
                 -
               </button>
-              <span className="px-4 py-2 font-medium arabic-nums">{quantity}</span>
+              <span className="px-4 py-2 font-medium arabic-nums">
+                {quantity}
+              </span>
               <button
                 onClick={() => setQuantity(quantity + 1)}
                 className="px-4 py-2 hover:bg-gray-100 transition-colors"
@@ -180,18 +211,18 @@ const ProductDetailPage = () => {
                 +
               </button>
             </div>
-            
+
             <button
               onClick={handleAddToCart}
               disabled={!product.inStock}
               className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold transition-colors ${
                 product.inStock
-                  ? 'bg-orange-600 text-white hover:bg-orange-700'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  ? "bg-orange-600 text-white hover:bg-orange-700"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
             >
               <ShoppingCart size={20} />
-              {product.inStock ? 'أضف للسلة' : 'غير متوفر'}
+              {product.inStock ? "أضف للسلة" : "غير متوفر"}
             </button>
           </div>
 
@@ -216,7 +247,7 @@ const ProductDetailPage = () => {
                 <p className="text-sm text-green-600">للطلبات +1000 ج</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg">
               <Shield className="text-blue-600" size={24} />
               <div>
@@ -224,7 +255,7 @@ const ProductDetailPage = () => {
                 <p className="text-sm text-blue-600">لمدة سنة</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-3 p-4 bg-orange-50 rounded-lg">
               <RotateCcw className="text-orange-600" size={24} />
               <div>
@@ -235,13 +266,17 @@ const ProductDetailPage = () => {
           </div>
         </div>
       </div>
-
       {/* Specifications */}
       <div className="bg-white rounded-lg shadow-md p-8 mb-16">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">المواصفات التقنية</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          المواصفات التقنية
+        </h2>
+        <div className="grid grid-cols-1 gap-4">
           {Object.entries(product.specifications).map(([key, value]) => (
-            <div key={key} className="flex justify-between items-center py-3 border-b border-gray-200">
+            <div
+              key={key}
+              className="flex justify-between border-b border-gray-200 pb-2"
+            >
               <span className="font-medium text-gray-700">{key}</span>
               <span className="text-gray-900">{value}</span>
             </div>
@@ -252,10 +287,15 @@ const ProductDetailPage = () => {
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-8">منتجات مشابهة</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-8">
+            منتجات مشابهة
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relatedProducts.map(relatedProduct => (
-              <div key={relatedProduct.id} className="bg-white rounded-lg shadow-md p-4">
+            {relatedProducts.map((relatedProduct) => (
+              <div
+                key={relatedProduct.id}
+                className="bg-white rounded-lg shadow-md p-4"
+              >
                 <img
                   src={relatedProduct.image}
                   alt={relatedProduct.name}
